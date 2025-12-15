@@ -1,0 +1,406 @@
+/* ===== Calendar Page Styles ===== */
+
+.calendar-page {
+    min-height: 100vh;
+    padding-bottom: var(--space-2xl);
+    animation: fadeIn var(--transition-normal) ease-out;
+}
+
+.calendar-page .header-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.toggle-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.toggle-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border-color: transparent;
+    color: white;
+}
+
+/* Calendar Navigation */
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.nav-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.nav-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    min-width: 200px;
+    text-align: center;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--space-xs);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.day-header {
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding: var(--space-sm);
+    font-size: 0.875rem;
+}
+
+.day-cell {
+    aspect-ratio: 1;
+    padding: var(--space-xs);
+    border-radius: var(--radius-md);
+    background: var(--bg-gradient-start);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+    min-height: 60px;
+}
+
+.calendar-grid.week .day-cell {
+    min-height: 100px;
+    aspect-ratio: auto;
+}
+
+.day-cell:hover {
+    background: var(--bg-card-yellow);
+    transform: scale(1.02);
+}
+
+.day-cell.today {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+}
+
+.day-cell.today .day-number {
+    color: white;
+}
+
+.day-cell.other-month {
+    opacity: 0.4;
+}
+
+.day-cell.selected {
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.day-number {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.day-indicators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.7rem;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 1px 4px;
+    border-radius: var(--radius-sm);
+    font-size: 0.65rem;
+}
+
+.indicator.sessions {
+    background: rgba(76, 175, 80, 0.2);
+    color: #2E7D32;
+}
+
+.indicator.exam {
+    background: rgba(255, 82, 82, 0.2);
+    color: #C62828;
+    font-size: 0.8rem;
+}
+
+/* Legend */
+.calendar-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.sessions {
+    background: var(--accent-green);
+}
+
+.legend-dot.exam {
+    background: var(--accent-red);
+}
+
+/* Selected Date Details */
+.selected-date-details {
+    margin-bottom: var(--space-lg);
+}
+
+.details-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.details-section {
+    margin-bottom: var(--space-md);
+}
+
+.details-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-gradient-start);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xs);
+    transition: all var(--transition-fast);
+}
+
+.detail-item:hover {
+    background: var(--bg-card-yellow);
+}
+
+.detail-item.completed {
+    opacity: 0.6;
+}
+
+.item-icon {
+    font-size: 1.25rem;
+}
+
+.item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.item-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.red-flag,
+.completed-check {
+    font-size: 1rem;
+}
+
+.exam-item {
+    background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+    border-left: 4px solid var(--accent-red);
+}
+
+.no-sessions {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--text-secondary);
+}
+
+.no-sessions p {
+    margin-top: var(--space-sm);
+}
+
+/* Upcoming Exams */
+.upcoming-exams {
+    background: linear-gradient(135deg, var(--bg-card-yellow) 0%, #FFF9E6 100%);
+}
+
+.upcoming-exams .card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.upcoming-exam-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.upcoming-exam-item:last-child {
+    border-bottom: none;
+}
+
+.exam-emoji {
+    font-size: 1.5rem;
+}
+
+.exam-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.exam-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.exam-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.days-badge {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    background: rgba(76, 175, 80, 0.2);
+    color: #2E7D32;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.days-badge.urgent {
+    background: rgba(255, 82, 82, 0.2);
+    color: #C62828;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.no-exams {
+    text-align: center;
+    padding: var(--space-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendar-grid.month .day-cell {
+        min-height: 50px;
+        padding: 2px;
+    }
+
+    .calendar-grid.month .day-indicators {
+        display: none;
+    }
+
+    .calendar-grid.month .day-cell.today .day-indicators,
+    .calendar-grid.month .day-cell.selected .day-indicators {
+        display: flex;
+    }
+
+    .nav-title {
+        font-size: 1rem;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-toggle {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .calendar-legend {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Dashboard New Layout */
+.dashboard-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .dashboard-top-grid {
+        grid-template-columns: 1fr;
+    }
+}

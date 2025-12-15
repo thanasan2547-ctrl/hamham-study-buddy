@@ -1,0 +1,238 @@
+/* ===== Gamification Component Styles ===== */
+
+/* Level Progress */
+.level-progress-container {
+    background: var(--bg-card);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--border-light);
+}
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.level-badge {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.xp-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.xp-bar-container {
+    height: 10px;
+    background: var(--bg-card-yellow);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+}
+
+.xp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-green) 0%, #81C784 100%);
+    border-radius: var(--radius-full);
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Virtual Pet */
+.virtual-pet-container {
+    background: linear-gradient(135deg, var(--bg-card-yellow) 0%, #FFF9E6 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-primary);
+}
+
+.pet-display {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: var(--space-md);
+}
+
+.pet-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.pet-image:hover {
+    transform: scale(1.1) rotate(5deg);
+    cursor: pointer;
+}
+
+.pet-image.bounce {
+    animation: bounce 0.5s infinite alternate;
+}
+
+.pet-stats {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+.stat-pill {
+    background: rgba(255, 255, 255, 0.8);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.stat-bar-mini {
+    width: 40px;
+    height: 6px;
+    background: #eee;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.stat-fill-mini {
+    height: 100%;
+    border-radius: var(--radius-full);
+}
+
+.happiness-fill {
+    background: var(--accent-red);
+}
+
+.hunger-fill {
+    background: var(--color-primary);
+}
+
+.feed-btn {
+    margin-top: var(--space-sm);
+    animation: pulse 2s infinite;
+}
+
+/* Daily Challenges */
+.daily-challenges-container {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    border: 1px solid var(--border-light);
+}
+
+.challenge-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.2s ease;
+}
+
+.challenge-item:last-child {
+    border-bottom: none;
+}
+
+.challenge-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.challenge-checkbox.checked {
+    background: var(--color-primary);
+    color: white;
+}
+
+.challenge-info {
+    flex: 1;
+}
+
+.challenge-text {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.challenge-item.completed .challenge-text {
+    text-decoration: line-through;
+    color: var(--text-light);
+}
+
+.challenge-reward {
+    font-size: 0.75rem;
+    color: var(--color-secondary-dark);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Achievements */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: var(--space-sm);
+}
+
+.achievement-badge {
+    aspect-ratio: 1;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xs);
+    text-align: center;
+    cursor: title;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+.achievement-badge.unlocked {
+    opacity: 1;
+    filter: grayscale(0);
+    border-color: var(--color-secondary);
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF 100%);
+    box-shadow: var(--shadow-sm);
+}
+
+.achievement-badge.unlocked:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.achievement-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.achievement-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
